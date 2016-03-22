@@ -1,5 +1,6 @@
 # jurassic-file-navigator
-WebVR implementation of Jurassic Park's infamous 3D file system navigator display
+* WebVR implementation of Jurassic Park's infamous 3D file system navigator display
+* Online demo: http://jfn.herokuapp.com (this might break at anytime, free heroku dyno, no guarantees)
 
 <a href = "https://www.youtube.com/watch?v=dxIPcbmo1_U">![Jurassic Park File System Navigator Scene](/public/images/jurassic-file-navigator.gif?raw=true "Jurassic Park File System Navigator Scene")</a>
 
@@ -11,7 +12,7 @@ WebVR implementation of Jurassic Park's infamous 3D file system navigator displa
 * run `npm start`
 * then load localhost:3000 in your browser
 
-## TODO - clone this repo and help make your retro dreams into (virtual) reality!
+## TODO List - clone this repo and help make your retro dreams into (virtual) reality!
 * multiple tree view on one page instead of mulitple pages
 * use asynchronous filesystem walking instead of readdirsync
 * button to move up a dir (../)
@@ -20,5 +21,4 @@ WebVR implementation of Jurassic Park's infamous 3D file system navigator displa
 
 ## Resources:
 * Built on aframe VR: https://aframe.io
-* Online demo: http://jfn.herokuapp.com (this might break at anytime, free heroku dyno, no guarantees)
 * Ported over from other aframe experiments here: https://github.com/kfarr/aframe-playground
