@@ -11,4 +11,5 @@ module.exports = function boot(app) {
   error_handlers(app);
   
   return app;
+
 }
