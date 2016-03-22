@@ -1,75 +1,19 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+  , favicons = require('connect-favicons')
+  , fsn = require('./fsn');
 
-router.get('/', function(req, res, next) {
+module.exports = function(app) {
+  
+  app.use(favicons(app.get('public') + '/images/icons'));
 
-  // get list of files from current dir if not already populated
-  // var path = './node_modules';
-  // var path = './';
-  var path = './public/' + (req.query.path || '');
+  // allowing for many include possibilities
+  app.use('/scripts/aframe', express.static(app.get('root') + '/node_modules/aframe/'));
+  app.use('/scripts/aframe/dist', express.static(app.get('root') + '/node_modules/aframe/dist/'));
+  app.use('/scripts/aframe-text-component/dist', express.static(app.get('root') + '/node_modules/aframe-text-component/dist/'));
+  
+  
+  app.use('/browse', fsn(app));
+  
+  app.use(express.static(app.get('public')));
 
-  console.log("req.query.path:" + req.query.path);
-
-  var fs = require('fs');
-  var files = fs.readdirSync(path);
-  console.log(files);
-
-  // what are # of files?
-  console.log(files.length);
-
-  // what should dimensions be for a given # of files to make a "square like" shape?
-  function getArrayDimensions(length) {
-    x = Math.round(Math.sqrt(length));
-    y = Math.ceil(Math.sqrt(length)); // this makes our boxes err on being "taller"
-    return { columns: x, rows: y };
-  }
-  var files_array_dimensions = getArrayDimensions(files.length);
-  console.log(files_array_dimensions);
-
-  var rows = files_array_dimensions['rows'];
-  var columns = files_array_dimensions['columns'];
-
-  var FILE_BOX_WIDTH = 1;
-  var FILE_BOX_BORDER = 0.5;
-
-  // create the "bounding" box to hold files based on dimensions
-  bounding_box_width = columns * FILE_BOX_WIDTH + ((columns + 1) * FILE_BOX_BORDER); // 3 cols: 3 + 4*.5 = 5
-  bounding_box_depth = rows * FILE_BOX_WIDTH + ((rows + 1) * FILE_BOX_BORDER); //
-  //
-  console.log("Bounding box Width: " + bounding_box_width + " Depth: " + bounding_box_depth);
-
-  var topleft_pos = { x: bounding_box_width / -2, y: 0, z: bounding_box_depth / -2 };
-
-  var files_array = [];
-  for(var i = 0; i < rows; i++) {
-
-    var row = [];
-    for(var j = 0; j < columns; j++) {
-      if (files.length > 0) {
-        filename = files.pop();
-        var column = { filename: filename, dir: (filename.indexOf('.') === -1) };
-//        console.log("column: " + column);
-//        console.log("files.length: " + files.length);
-        row.push(column);
-      }
-    };
-//    console.log("row" + row);
-
-    files_array.push(row);
-  };
-
-  res.render('fsn.html', {
-    files_array: files_array,
-    rows: rows,
-    columns: columns,
-    FILE_BOX_WIDTH: FILE_BOX_WIDTH,
-    FILE_BOX_BORDER: FILE_BOX_BORDER,
-    FILE_BOX_DELTA: FILE_BOX_WIDTH + FILE_BOX_BORDER,
-    bounding_box_width: bounding_box_width,
-    bounding_box_depth: bounding_box_depth,
-    topleft_pos: topleft_pos,
-    req_query_path: req.query.path,
-    path: path});
-});
-
-module.exports = router;
+}

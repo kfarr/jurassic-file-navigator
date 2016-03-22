@@ -20,26 +20,6 @@
   <a-image visible="false" src="#fsn" position="-2 5 1" rotation="0 45 0"></a-image>
   <a-image visible="false" src="#jsn" position="2 5 1" rotation="0 -45 0" scale="1.6 .9 0"></a-image>
 
-  <!-- Original "Handdrawn" boxes -->
-
-  <!-- <a-box name="original custom box" position="0 -1 -.5" scale="2 .5 2" color="gray"></a-box> -->
-
-  <!-- <a-box id="row1-col1" position="-.9 -.3 -1.3" scale=".6 .5 .6" color="orange">
-    <a-event name="mouseenter" color="yellow"></a-event>
-    <a-event name="mouseleave" color="orange"></a-event>
-  </a-box>
-  <a-box id="row1-col2" position=".9 -.3 -1.3" scale=".6 .7 .6" color="orange">
-    <a-event name="mouseenter" color="yellow"></a-event>
-    <a-event name="mouseleave" color="orange"></a-event>
-  </a-box>
-  <a-box id="row2-col1" position="-.9 -.3 .4" scale=".6 .2 .6" color="orange">
-    <a-event name="mouseenter" color="yellow"></a-event>
-    <a-event name="mouseleave" color="orange"></a-event>
-  </a-box>
-  <a-box id="row2-col2" position=".9 -.3 .4" scale=".6 .2 .6" color="orange">
-    <a-event name="mouseenter" color="yellow"></a-event>
-    <a-event name="mouseleave" color="orange"></a-event>
-  </a-box> -->
 
   <a-camera position="2 4 6" rotation="-36.440115770320375 31.97104496829994 0">
 
@@ -52,7 +32,6 @@
 
   <a-box name="directory bounding box" position="-1 0 -1" scale="1 1 1" height="1" width="{{ bounding_box_width }}" depth="{{ bounding_box_depth }}" color="gray"></a-box>
   <a-entity rotation="0 0 0" text="text: {{ path }}" position="{{ topleft_pos['x'] }} 0 {{ topleft_pos['z'] + bounding_box_depth }}" material="color: red"></a-entity>
-<!-- position="{{ topleft_pos['x'] + (loop.index0 * FILE_BOX_DELTA) - FILE_BOX_WIDTH / 2 }}, {{ topleft_pos['y'] + 1.75 }}, {{ topleft_pos['z'] - 0.25 + (row_loop_index0 * FILE_BOX_DELTA) + 0.5 * loop.index0 / columns * FILE_BOX_WIDTH }}" -->
   {% for row in files_array %}
     {% set row_loop_index0 = loop.index0 %}
     {% for column in row %}
@@ -73,14 +52,6 @@
                    fill="forwards"
                    repeat="indefinite"></a-animation>
   </a-image>
-
-  <!-- <a-image src="#selector" position="{{ topleft_pos['x'] + FILE_BOX_DELTA }} -.5 {{ topleft_pos['z'] + FILE_BOX_DELTA}}" rotation="90 0 0" width="{{ bounding_box_width }}" height="{{ bounding_box_depth }}" scale="1.75 1.75 1.75">
-    <a-animation attribute="scale"
-                   to="2 2 2"
-                   dur="3000"
-                   fill="forwards"
-                   repeat="indefinite"></a-animation>
-  </a-image> -->
 </a-scene>
 
 {% endblock %}
