@@ -11,6 +11,9 @@
 * clone and run `npm install`
 * run `npm start`
 * then load localhost:3000 in your browser
+* Look around, purple boxes are directories, yellow boxes are files
+* "gaze" at a purple box to navigate to the subdirectory
+* That's about it
 
 ## TODO List - clone this repo and help make your retro dreams into (virtual) reality!
 * multiple tree view on one page instead of mulitple pages
