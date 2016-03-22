@@ -1,5 +1,5 @@
 var config = require('./config')
-  , error_handlers = require('../lib/util/error-handlers')
+  , error_handlers = require('../lib/error-handlers')
   , routes = require('../routes');
 
 module.exports = function boot(app) {

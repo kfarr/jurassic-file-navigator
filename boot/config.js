@@ -1,12 +1,12 @@
 var path = require('path')
   , cookieParser = require('cookie-parser')
   , morgan = require('morgan') // logger
+  , swig = require('swig')
   , customLogFormatter = require('../lib/util/dev-express-log')
   , bodyParser = require('body-parser')
   , compression = require('compression')
   , timeout = require('connect-timeout')
   , responseTime = require('response-time');
-
 
 module.exports = function config(app) {
   
@@ -38,7 +38,8 @@ module.exports = function config(app) {
   
   // General Config
   app
-    .set('root', path.normalize(__dirname + '/../'))
+    .set('root', path.normalize(__dirname + '/..'))
+    .set('public', path.normalize(__dirname + '/../public'))
     .set('views', __dirname + '/../views')
     .set('view engine', 'html')
     .engine('html', swig.renderFile)
