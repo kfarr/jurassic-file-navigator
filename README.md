@@ -1,4 +1,4 @@
-# jurassic-file-navigator
+# 🦖jurassic-file-navigator
 * WebVR implementation of Jurassic Park's infamous 3D file system navigator display
 * Online demo: http://jfn.herokuapp.com (this might break at anytime, free heroku dyno, no guarantees)
 
@@ -6,6 +6,10 @@
 
 * Remember Jurassic Park and its super rad 3D file system navigator? Did you know it was based on a real application? "<a href="https://en.wikipedia.org/wiki/Fsn">File System Navigator</a>" was created in the 80's and never really saw use beyond the '93 dino flick. 
 * Now relive those memories in virtual reality with this WebVR experiment inspired by FSN and Jurassic Park
+
+## What does it look like?
+![Screenshot of app](/public/images/app-video-jurassic-file-nav.gif?raw=true "Screenshot of app")
+
 
 ## how to use?
 * clone and run `npm install`
